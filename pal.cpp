@@ -47,11 +47,11 @@ int main()
   }
   if (pal == true)
   {
-    cout << "Yes";
+    cout << "Is a palindrome";
   }
   else
   {
-    cout << "No";
+    cout << "Not a palindrome";
   }
 }
 
