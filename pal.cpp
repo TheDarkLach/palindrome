@@ -3,44 +3,55 @@
 
 using namespace std;
 
-
+bool punccheck(char x, char white [])
+{
+  bool punccheck = false;
+  for (int j = 0; j < strlen(white); j++)
+    {
+      if (x == white[j])
+      {
+        punccheck = true;
+      }
+    }
+  return punccheck;
+}
 int main()
 {
-  char word[80];
-  int i, length;
-  int pal = 0;
-
-  cout << "Enter word: ";
-  cin >> word;
-
-  //word.erase(remove(word.begin(), word.end(), ' '),word.end());
-
+  char input [80];
+  char whitelist [] = " ./;:',<>()?!@#$%^&*{}[]|";
+  int i;
   
-  length = strlen(word);
+  cout << "Enter word: ";
+  
+  cin.getline(input,sizeof(input));
+  
+  bool pal = true;
+  int whitelength = strlen(whitelist);
+  int length = strlen(input);
+  
 
-  /*for (i = 0; i < length; i++)
+  for (int i=0; i<strlen(input); i++)
   {
-    if (word[i] == NULL)
-      {
-	//word.erase(remove(word.begin(), word.end(), ' '),word.end());
-	
-      }
-      }*/
+     input[i] = (tolower(input[i]));
+  }
   
   for (i = 0; i < length; i++)
   {
-    if (word[i] != word[length - i - 1] && word[i] == ' ')
+    if (input[i] != input[length-i-1])
     {
-      pal = 1;
+      if (!punccheck(input[i], whitelist)&&!punccheck(input[length-i-1], whitelist))
+      {
+        pal = false;
+      }
     }
   }
-  if (pal)
+  if (pal == true)
   {
-    cout << "Not a palindrome";
+    cout << "Yes";
   }
   else
   {
-    cout << "Is a palindrome";
+    cout << "No";
   }
-  return 0;
 }
+
