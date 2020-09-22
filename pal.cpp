@@ -1,3 +1,5 @@
+//Plaindrome program by Faizan Karim
+
 #include <iostream>
 #include <cstring>
 
@@ -5,6 +7,8 @@ using namespace std;
 
 bool punccheck(char x, char white [])
 {
+  //function to check punctuation
+  
   bool punccheck = false;
   for (int j = 0; j < strlen(white); j++)
     {
@@ -17,9 +21,11 @@ bool punccheck(char x, char white [])
 }
 int main()
 {
+  //char array
   char input [80];
+  
+  //remove punctuation
   char whitelist [] = " ./;:',<>()?!@#$%^&*{}[]|";
-  int i;
   
   cout << "Enter word: ";
   
@@ -32,13 +38,15 @@ int main()
 
   for (int i=0; i<strlen(input); i++)
   {
+    //make everything lower case
      input[i] = (tolower(input[i]));
   }
   
-  for (i = 0; i < length; i++)
+  for (int i = 0; i < length; i++)
   {
     if (input[i] != input[length-i-1])
     {
+      //if word doesn't match after removing spaces and punctuation
       if (!punccheck(input[i], whitelist)&&!punccheck(input[length-i-1], whitelist))
       {
         pal = false;
@@ -47,11 +55,13 @@ int main()
   }
   if (pal == true)
   {
-    cout << "Is a palindrome";
+    cout << "Is a palindrome\n\n";
+    cout<<input;
   }
   else
   {
-    cout << "Not a palindrome";
+    cout << "Not a palindrome\n\n";
+    cout <<input;
   }
 }
 
