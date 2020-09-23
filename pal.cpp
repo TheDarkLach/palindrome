@@ -47,21 +47,22 @@ int main()
     if (input[i] != input[length-i-1])
     {
       //if word doesn't match after removing spaces and punctuation
-      if (!punccheck(input[i], whitelist)&&!punccheck(input[length-i-1], whitelist))
+      if (!punccheck(input[i], whitelist) && !punccheck(input[length-i-1], whitelist))
       {
         pal = false;
       }
     }
   }
+  //print if or not pali
   if (pal == true)
   {
-    cout << "Is a palindrome\n\n";
-    cout<<input;
+    cout << "\nIs a palindrome\n\n";
+    cout << input;
   }
   else
   {
-    cout << "Not a palindrome\n\n";
-    cout <<input;
+    cout << "\nNot a palindrome\n\n";
+    cout << input;
   }
 }
 
